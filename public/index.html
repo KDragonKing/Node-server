@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Headline</title>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            fetch('/headline')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('headline').innerText = data;
+                })
+                .catch(error => console.error('Error:', error));
+        });
+    </script>
+</head>
+<body>
+    <h1 id="headline">Original Headline</h1>
+</body>
+</html>
